@@ -30,10 +30,7 @@ def solve(inputs, a):
         choice_index = choice_wins.index(wins)
         win_choice = choices[choice_index]
 
-        winning_indices = sorted(choice_win_inputs[choice_index], reverse=True)
-
-        for input_index in winning_indices:
-            del inputs[input_index]
+        inputs = [item for j, item in enumerate(inputs) if j not in choice_win_inputs[choice_index]]
 
         ans.append(win_choice)
         total_wins += wins
